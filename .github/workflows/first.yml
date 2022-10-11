@@ -1,36 +1,36 @@
 name: firtname
 on: push
 jobs:
-  Job1:
+  job1:
     name: firstjob
-    runs-on: ubutnu-latest
-    steps:
-      -name: step1
+    runs-on: ubuntu-latest
+    steps: 
+    - name: step1
       uses: actions/checkout@v2
-      -name: step2
+    - name: step2
       run: asctime()
-  Job2:
+  job2:
     name: secondjob
-    runs-on:windows-latest
+    runs-on: windows-latest
     steps:
-      -name: step1
+    - name: step1
       uses: actions/checkout@v2
-      -name: step2
+    - name: step2
       run: strftime()
-  Job3:
+  job3:
     name: thirdjob
     runs-on: macos-latest
     steps:
-      -name: step1
+    - name: step1
       uses: action/checkout@v2
-      -name: step2
-      run: %T  
-  Job 4:
+    - name: step2
+      run: "%T"
+  job4:
     name: fourthjob
-    needs: [Job1, Job2, Job3]
-    runs-on:windows-latest
+    needs: [job1, job2, job3]
+    runs-on: windows-latest
     steps:
-      -name: step1
-      uses: windows-latest
-      -name: step2
-      run:- strftime()
+    - name: step1
+      uses: action/checkout@v2
+    - name: step2
+      run: strftime()
