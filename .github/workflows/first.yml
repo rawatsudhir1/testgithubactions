@@ -8,7 +8,7 @@ jobs:
     - name: step1
       uses: actions/checkout@v2
     - name: step2
-      run: asctime()
+      run: timedatectl
   job2:
     name: secondjob
     runs-on: windows-latest
@@ -16,21 +16,21 @@ jobs:
     - name: step1
       uses: actions/checkout@v2
     - name: step2
-      run: strftime()
+      run: Get-Date
   job3:
     name: thirdjob
     runs-on: macos-latest
     steps:
     - name: step1
-      uses: action/checkout@v2
+      uses: actions/checkout@v2
     - name: step2
-      run: "%T"
+      run: "date +%F"
   job4:
     name: fourthjob
     needs: [job1, job2, job3]
     runs-on: windows-latest
     steps:
     - name: step1
-      uses: action/checkout@v2
+      uses: actions/checkout@v2
     - name: step2
-      run: strftime()
+      run: Get-Date
